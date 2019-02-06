@@ -9,8 +9,10 @@ public class TesteClassGithub  extends GitHubConnetion{
 		GitHubConnetion gt = new GitHubConnetion();
 		
 		gt.setEmaiil("jaksonsneider@gmail.com");
+		gt.setIduser(99870206);
 		
 		System.out.println(gt.getEmaiil());
+		System.out.println(gt.longValue());
 		
 	}
 

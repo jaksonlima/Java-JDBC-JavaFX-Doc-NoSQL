@@ -1,6 +1,8 @@
 package projetoGihHub.Connetion;
 
-public class GitHubConnetion {
+import projeto.Autentica.GitHubAutenticaUser;
+
+public class GitHubConnetion extends GitHubAutenticaUser{
 
 	private int conexao;
 	private double nome;
