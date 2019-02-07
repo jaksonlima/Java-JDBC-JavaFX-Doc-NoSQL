@@ -1,4 +1,4 @@
-package Enum07022019;
+package EnumeraçõesComposição;
 
 public class Department {
 
