@@ -11,7 +11,7 @@ public class TestePedidoEnum {
 		PedidosEnum pd = new PedidosEnum(123, new Date(),Enum.AGUARDADO_PAGAMENTO);
 		System.out.println(pd);
 		
-//		Enum pd1 =  new Enum
+		
 		
 	}
 
