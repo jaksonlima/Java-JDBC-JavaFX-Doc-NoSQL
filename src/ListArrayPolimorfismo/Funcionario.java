@@ -1,4 +1,4 @@
-package Polimorfismo.List.Herança;
+package ListArrayPolimorfismo;
 
 public class Funcionario {
 
