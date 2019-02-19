@@ -8,12 +8,16 @@ public class InformaçõesDoCaminhoDoArquivo {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("Informe o caminho da pasta? ");
+		System.out.print("Informe o caminho da pasta: ");
 		String caminho = sc.nextLine();
-		
-		File arq = new File(caminho);
-		
-		System.out.println("Pastas: " + caminho);
+
+		File pasta = new File(caminho);
+
+		System.out.println("Pastas: " + pasta.getName());
+		System.out.println("Pastas Parametro: " + pasta.getParent());
+		System.out.println("Pastas Parametro e Arquivo: " + pasta.getPath());
+
+
 
 		sc.close();
 	}
