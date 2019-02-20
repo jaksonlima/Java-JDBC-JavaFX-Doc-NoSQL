@@ -13,7 +13,7 @@ public class AluguerCarros {
 	public AluguerCarros() {
 	}
 
-	public void AluguerCarros(Date inicio, Date fim, Veiculo veiculo) {
+	public AluguerCarros(Date inicio, Date fim, Veiculo veiculo) {
 		this.inicio = inicio;
 		this.fim = fim;
 		this.veiculo = veiculo;

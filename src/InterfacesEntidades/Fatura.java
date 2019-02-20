@@ -5,10 +5,16 @@ public class Fatura {
 	public Double FormAPagamento;
 	public Double taxa;
 
+	
 	public Fatura() {
 	}
 
-	public void Fatura(Double formaPagamento, Double taxa) {
+	public Fatura(double basicPlayment, double taxa2) {
+		this.FormAPagamento = basicPlayment;
+		this.taxa = taxa2;
+	}
+
+	public void Fatura(double formaPagamento, double taxa) {
 		this.FormAPagamento = formaPagamento;
 		this.taxa = taxa;
 	}
@@ -30,7 +36,7 @@ public class Fatura {
 	}
 
 	public Double totalpamento() {
-		return getFormAPagamento() + getTaxa();	 
+		return getFormAPagamento() + getTaxa();
 	}
 
 }

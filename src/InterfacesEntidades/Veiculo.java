@@ -4,10 +4,11 @@ public class Veiculo {
 
 	private String modelo;
 
-	public Veiculo() {
+	public Veiculo(String modelo) {
+		this.modelo = modelo;
 	}
 
-	public void veiiculo(String modelo) {
+	public void veiculo(String modelo) {
 		this.modelo = modelo;
 	}
 

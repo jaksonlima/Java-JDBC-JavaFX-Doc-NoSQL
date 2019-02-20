@@ -14,6 +14,8 @@
 /Final/
 /HerançaPolimorfismo/
 /InformaçõesDoCaminhoDoArquivo/
+/InterfacesEntidades/
+/InterfacesServicos/
 /ListArrayPolimorfismo/
 /ListPolimorfismoHeranca/
 /MetodosAbstract/
@@ -23,6 +25,4 @@
 /Polimorfismo/
 /Upcasting/
 /Vetor/
-/Interfaces/
-/InterfacesServicos/
-/InterfacesEntidades/
+/InterfacesTest/
