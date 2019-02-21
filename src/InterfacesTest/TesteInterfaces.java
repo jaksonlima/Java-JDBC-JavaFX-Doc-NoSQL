@@ -8,8 +8,10 @@ import java.util.Scanner;
 
 import InterfacesEntidades.AluguerCarros;
 import InterfacesEntidades.Veiculo;
+import InterfacesServicos.ServicosLocacao;
+import InterfacesServicos.TaxaBrasilServico;
 
-public class Testeinterfaces {
+public class TesteInterfaces {
 	public static void main(String[] args) throws ParseException {
 
 		Locale.setDefault(Locale.US);
@@ -21,7 +23,7 @@ public class Testeinterfaces {
 		String modelo = sc.nextLine();
 		System.out.print("pegar (dd/HH/yyy hh:ss) ");
 		Date inicio = sdf.parse(sc.nextLine());
-		System.out.println("Retorna (dd:HH:yyyy hh:ss) ");
+		System.out.print("Retorna (dd:HH:yyyy hh:ss) ");
 		Date fim = sdf.parse(sc.nextLine());
 
 		AluguerCarros ac = new AluguerCarros(inicio, fim, new Veiculo(modelo));
@@ -30,6 +32,17 @@ public class Testeinterfaces {
 		double ph = sc.nextDouble();
 		System.out.println("Preço Por Dia: ");
 		double pd = sc.nextDouble();
+
+		ServicosLocacao rentalserver = new ServicosLocacao(ph, pd, new TaxaBrasilServico());
+
+		rentalserver.faturaProcesso(ac);
+
+		System.out.println("Fatura: ");
+		System.out.println("Pagamento Básico: " + String.format("%.2f%", ac.getFatura().getFormAPagamento()));
+		System.out.println("Taxa : " + String.format("%.2f%", ac.getFatura().getTaxa()));
+		System.out.println("Total pagamento: " + String.format("%.2f%", ac.getFatura().getTotalpamento()));
+
+		
 
 		sc.close();
 	}

@@ -35,7 +35,7 @@ public class Fatura {
 		this.taxa = taxa;
 	}
 
-	public Double totalpamento() {
+	public Double getTotalpamento() {
 		return getFormAPagamento() + getTaxa();
 	}
 

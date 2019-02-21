@@ -12,7 +12,7 @@ public class ServicosLocacao {
 
 	private TaxaBrasilServico taxaBrasilServico;
 
-	public ServicosLocacao(Double precohora, double precodia, TaxaBrasilServico taxaBrasilServico) {
+	public ServicosLocacao(double precohora, double precodia, TaxaBrasilServico taxaBrasilServico) {
 		this.precohora = precohora;
 		this.precodia = precodia;
 		this.taxaBrasilServico = taxaBrasilServico;
