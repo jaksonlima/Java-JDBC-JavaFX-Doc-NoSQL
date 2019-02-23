@@ -6,45 +6,44 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
-import InterfacesEntidades.AluguerCarros;
-import InterfacesEntidades.Veiculo;
-import InterfacesServicos.ServicosLocacao;
-import InterfacesServicos.TaxaBrasilServico;
+import InterfacesEntidades.Vehicle;
+import InterfacesEntidades.carRental;
+import InterfacesServicos.BrazilTaxService;
+import InterfacesServicos.RentalService;
+import InterfacesServicos.TaxService;
 
 public class TesteInterfaces {
+
 	public static void main(String[] args) throws ParseException {
 
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/HH/yyyy HH:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
-		System.out.println("Data: ");
-		System.out.print("Modelo de Carro:");
-		String modelo = sc.nextLine();
-		System.out.print("pegar (dd/HH/yyy hh:ss) ");
-		Date inicio = sdf.parse(sc.nextLine());
-		System.out.print("Retorna (dd:HH:yyyy hh:ss) ");
-		Date fim = sdf.parse(sc.nextLine());
+		System.out.println("Enter rental data");
+		System.out.print("Car model: ");
+		String carModel = sc.nextLine();
+		System.out.print("Pickup (dd/MM/yyyy HH:mm): ");
+		Date start = sdf.parse(sc.nextLine());
+		System.out.print("Return (dd/MM/yyyy HH:mm): ");
+		Date finish = sdf.parse(sc.nextLine());
 
-		AluguerCarros ac = new AluguerCarros(inicio, fim, new Veiculo(modelo));
+		carRental cr = new carRental(start, finish, new Vehicle(carModel));
 
-		System.out.println("Preço Por Hora: ");
-		double ph = sc.nextDouble();
-		System.out.println("Preço Por Dia: ");
-		double pd = sc.nextDouble();
+		System.out.print("Enter price per hour: ");
+		double pricePerHour = sc.nextDouble();
+		System.out.print("Enter price per day: ");
+		double pricePerDay = sc.nextDouble();
 
-		ServicosLocacao rentalserver = new ServicosLocacao(ph, pd, new TaxaBrasilServico());
+		RentalService rentalService = new RentalService(pricePerDay, pricePerHour, new BrazilTaxService());
 
-		rentalserver.faturaProcesso(ac);
+		rentalService.processInvoice(cr);
 
-		System.out.println("Fatura: ");
-		System.out.println("Pagamento Básico: " + String.format("%.2f%", ac.getFatura().getFormAPagamento()));
-		System.out.println("Taxa : " + String.format("%.2f%", ac.getFatura().getTaxa()));
-		System.out.println("Total pagamento: " + String.format("%.2f%", ac.getFatura().getTotalpamento()));
-
-		
+		System.out.println("INVOICE:");
+		System.out.println("Basic payment: " + String.format("%.2f", cr.getInvoice().getBasicPayment()));
+		System.out.println("Tax: " + String.format("%.2f", cr.getInvoice().getTax()));
+		System.out.println("Total payment: " + String.format("%.2f", cr.getInvoice().getTotalPayment()));
 
 		sc.close();
 	}
-
 }

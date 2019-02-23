@@ -1,23 +1,21 @@
 package InterfacesEntidades;
 
-public class Veiculo {
+public class Vehicle {
 
-	private String modelo;
+	private String model;
 
-	public Veiculo(String modelo) {
-		this.modelo = modelo;
+	public Vehicle() {
 	}
 
-	public void veiculo(String modelo) {
-		this.modelo = modelo;
+	public Vehicle(String model) {
+		this.model = model;
 	}
 
-	public String getModelo() {
-		return modelo;
+	public String getModel() {
+		return model;
 	}
 
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
+	public void setModel(String model) {
+		this.model = model;
 	}
-
 }

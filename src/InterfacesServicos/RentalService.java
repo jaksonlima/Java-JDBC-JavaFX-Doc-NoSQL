@@ -1,37 +1,38 @@
 package InterfacesServicos;
 
-import java.util.Date;
+import InterfacesEntidades.Invoice;
+import InterfacesEntidades.carRental;
 
-import InterfacesEntidades.AluguerCarros;
-import InterfacesEntidades.Fatura;
+public class RentalService {
 
-public class ServicosLocacao {
+	private Double pricePerDay;
+	private Double pricePerHour;
 
-	private Double precohora;
-	private Double precodia;
+	private TaxService taxService;
 
-	private TaxaBrasilServico taxaBrasilServico;
-
-	public ServicosLocacao(double precohora, double precodia, TaxaBrasilServico taxaBrasilServico) {
-		this.precohora = precohora;
-		this.precodia = precodia;
-		this.taxaBrasilServico = taxaBrasilServico;
+	public RentalService() {
 	}
 
-	public void faturaProcesso(AluguerCarros aluguerCarros) {
-		long t1 = aluguerCarros.getInicio().getTime();
-		long t2 = aluguerCarros.getFim().getTime();
-		double hrs = (double) (t1 - t2) / 100 / 60 / 60;
-		double basicPlayment;
-		if (hrs <= 12.0) {
-			basicPlayment = Math.ceil(hrs) * precodia;
+	public RentalService(Double pricePerDay, Double pricePerHour, TaxService taxService) {
+		this.pricePerDay = pricePerDay;
+		this.pricePerHour = pricePerHour;
+		this.taxService = taxService;
+	}
+
+	public void processInvoice(carRental carRental) {
+		long t1 = carRental.getStart().getTime();
+		long t2 = carRental.getFinish().getTime();
+		double hours = (double) (t2 - t1) / 1000 / 60 / 60;
+
+		double basicPayment;
+		if (hours <= 12.0) {
+			basicPayment = pricePerHour * Math.ceil(hours);
 		} else {
-			basicPlayment = Math.ceil(hrs / 24) * precodia;
+			basicPayment = pricePerDay * Math.ceil(hours / 24);
 		}
 
-		double taxa = taxaBrasilServico.taxa(basicPlayment);
+		double tax = taxService.tax(basicPayment);
 
-		aluguerCarros.setFatura(new Fatura(basicPlayment, taxa));
-
+		carRental.setInvoice(new Invoice(basicPayment, tax));
 	}
 }

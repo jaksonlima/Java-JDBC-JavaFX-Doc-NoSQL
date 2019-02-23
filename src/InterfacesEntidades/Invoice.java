@@ -1,42 +1,35 @@
 package InterfacesEntidades;
 
-public class Fatura {
+public class Invoice {
 
-	public Double FormAPagamento;
-	public Double taxa;
+	private Double basicPayment;
+	private Double tax;
 
-	
-	public Fatura() {
+	public Invoice() {
 	}
 
-	public Fatura(double basicPlayment, double taxa2) {
-		this.FormAPagamento = basicPlayment;
-		this.taxa = taxa2;
+	public Invoice(Double basicPayment, Double tax) {
+		this.basicPayment = basicPayment;
+		this.tax = tax;
 	}
 
-	public void Fatura(double formaPagamento, double taxa) {
-		this.FormAPagamento = formaPagamento;
-		this.taxa = taxa;
+	public Double getBasicPayment() {
+		return basicPayment;
 	}
 
-	public Double getFormAPagamento() {
-		return FormAPagamento;
+	public void setBasicPayment(Double basicPayment) {
+		this.basicPayment = basicPayment;
 	}
 
-	public void setFormAPagamento(Double formAPagamento) {
-		FormAPagamento = formAPagamento;
+	public Double getTax() {
+		return tax;
 	}
 
-	public Double getTaxa() {
-		return taxa;
+	public void setTax(Double tax) {
+		this.tax = tax;
 	}
 
-	public void setTaxa(Double taxa) {
-		this.taxa = taxa;
+	public Double getTotalPayment() {
+		return getBasicPayment() + getTax();
 	}
-
-	public Double getTotalpamento() {
-		return getFormAPagamento() + getTaxa();
-	}
-
 }

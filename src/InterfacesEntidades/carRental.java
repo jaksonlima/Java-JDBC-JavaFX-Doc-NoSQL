@@ -2,53 +2,52 @@ package InterfacesEntidades;
 
 import java.util.Date;
 
-public class AluguerCarros {
+public class carRental {
 
-	private Date inicio;
-	private Date fim;
+	private Date start;
+	private Date finish;
 
-	private Veiculo veiculo;
-	private Fatura fatura;
+	private Vehicle vehicle;
+	private Invoice invoice;
 
-	public AluguerCarros() {
+	public carRental() {
 	}
 
-	public AluguerCarros(Date inicio, Date fim, Veiculo veiculo) {
-		this.inicio = inicio;
-		this.fim = fim;
-		this.veiculo = veiculo;
+	public carRental(Date start, Date finish, Vehicle vehicle) {
+		this.start = start;
+		this.finish = finish;
+		this.vehicle = vehicle;
 	}
 
-	public Date getInicio() {
-		return inicio;
+	public Date getStart() {
+		return start;
 	}
 
-	public void setInicio(Date inicio) {
-		this.inicio = inicio;
+	public void setStart(Date start) {
+		this.start = start;
 	}
 
-	public Date getFim() {
-		return fim;
+	public Date getFinish() {
+		return finish;
 	}
 
-	public void setFim(Date fim) {
-		this.fim = fim;
+	public void setFinish(Date finish) {
+		this.finish = finish;
 	}
 
-	public Veiculo getVeiculo() {
-		return veiculo;
+	public Vehicle getVehicle() {
+		return vehicle;
 	}
 
-	public void setVeiculo(Veiculo veiculo) {
-		this.veiculo = veiculo;
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
 
-	public Fatura getFatura() {
-		return fatura;
+	public Invoice getInvoice() {
+		return invoice;
 	}
 
-	public void setFatura(Fatura fatura) {
-		this.fatura = fatura;
+	public void setInvoice(Invoice invoice) {
+		this.invoice = invoice;
 	}
-
 }

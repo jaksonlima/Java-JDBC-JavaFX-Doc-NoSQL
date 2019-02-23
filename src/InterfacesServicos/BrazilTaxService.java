@@ -1,14 +1,21 @@
 package InterfacesServicos;
 
-public class TaxaBrasilServico {
+public class BrazilTaxService implements TaxService{
 
-	public double taxa(double montante) {
-	 	if (montante <= 100.0) {
-			return montante * 0.2;
+	public double tax(double amount) {
+		if (amount <= 100.0) {
+			return amount * 0.2;
 		} else {
-			return montante * 0.15;
+			return amount * 0.15;
 		}
 	}
 
+	public Integer brasil(int valor) {
+		if (valor >= 100) {
+			return valor * 2;
+		} else {
+			return valor * 15;
+		}
+
+	}
 }
-  
