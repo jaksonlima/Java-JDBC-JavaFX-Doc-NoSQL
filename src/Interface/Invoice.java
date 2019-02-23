@@ -1,4 +1,4 @@
-package InterfacesEntidades;
+package Interface;
 
 public class Invoice {
 

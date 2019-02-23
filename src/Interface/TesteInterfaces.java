@@ -1,16 +1,10 @@
-package InterfacesTest;
+package Interface;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
-
-import InterfacesEntidades.Vehicle;
-import InterfacesEntidades.carRental;
-import InterfacesServicos.BrazilTaxService;
-import InterfacesServicos.RentalService;
-import InterfacesServicos.TaxService;
 
 public class TesteInterfaces {
 
@@ -27,6 +21,9 @@ public class TesteInterfaces {
 		Date start = sdf.parse(sc.nextLine());
 		System.out.print("Return (dd/MM/yyyy HH:mm): ");
 		Date finish = sdf.parse(sc.nextLine());
+
+		// Vehicle model = new Vehicle(carModel); O construtor pode ficar dentro do
+		// proprio chamado carRental.
 
 		carRental cr = new carRental(start, finish, new Vehicle(carModel));
 

@@ -1,4 +1,4 @@
-package InterfacesServicos;
+package Interface;
 
 public interface TaxService {
 

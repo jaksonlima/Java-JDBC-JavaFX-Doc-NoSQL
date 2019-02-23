@@ -1,7 +1,4 @@
-package InterfacesServicos;
-
-import InterfacesEntidades.Invoice;
-import InterfacesEntidades.carRental;
+package Interface;
 
 public class RentalService {
 
