@@ -12,11 +12,10 @@
 /FileWriterBufferedWriter/
 /FilnalArquivoTXT/
 /Final/
+/HerançaEinterface/
 /HerançaPolimorfismo/
 /InformaçõesDoCaminhoDoArquivo/
-/InterfacesEntidades/
-/InterfacesServicos/
-/InterfacesTest/
+/Interface/
 /ListArrayPolimorfismo/
 /ListPolimorfismoHeranca/
 /MetodosAbstract/
@@ -26,6 +25,4 @@
 /Polimorfismo/
 /Upcasting/
 /Vetor/
-/InterfacesTestOqueÉ/
-/Interface/
-/HerançaEinterface/
+/InterfaceHerançaDiamante/
