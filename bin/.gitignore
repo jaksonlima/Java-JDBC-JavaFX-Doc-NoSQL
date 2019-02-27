@@ -16,6 +16,9 @@
 /HerançaPolimorfismo/
 /InformaçõesDoCaminhoDoArquivo/
 /Interface/
+/InterfaceComparableFiles/
+/InterfaceHerançaDiamante/
+/InterfaceMétodosPadrão/
 /ListArrayPolimorfismo/
 /ListPolimorfismoHeranca/
 /MetodosAbstract/
@@ -25,7 +28,4 @@
 /Polimorfismo/
 /Upcasting/
 /Vetor/
-/InterfaceHerançaDiamante/
-/InterfaceComparable/
-/InterfaceComparableFiles/
-/InterfaceMétodosPadrão/
+/GenericsSetMap/
