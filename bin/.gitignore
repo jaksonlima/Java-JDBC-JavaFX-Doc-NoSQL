@@ -1,5 +1,7 @@
 /ChartAtParaQueServe/
 /ClassAbctraras/
+/CuringasDelimitadosBounDedWildCards/
+/CuringasDelimitadosPrincípioGetPut/
 /Encapsulamento/
 /EnumeraçõesComposição/
 /ExcecoesPersonalizadas/
@@ -28,9 +30,9 @@
 /PilhaExcecoesExcpetion/
 /PilhaExceptionFinally/
 /Polimorfismo/
+/TiposListCuringaWildCardtypes/
 /Upcasting/
 /Vetor/
-/TiposCuringaWildCardtypes/
-/CuringasDelimitadosBounDedWildCards/
-/TiposListCuringaWildCardtypes/
-/CuringasDelimitadosPrincípioGetPut/
+/Equals.class
+/HashCodeEquals/
+/HashSetTreeSetLinkedHashSet/
