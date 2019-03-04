@@ -4,7 +4,7 @@ public class Equals {
 	public static void main(String[] args) {
 
 		/**
-		 * Equals Método que compara se o objeto é igual a outro, retornando trueou
+		 * Equals Método que compara se o objeto é igual a outro, retornando true ou
 		 * false.
 		 **/
 
