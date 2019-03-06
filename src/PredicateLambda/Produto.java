@@ -1,4 +1,4 @@
-package Predicate;
+package PredicateLambda;
 
 public class Produto {
 

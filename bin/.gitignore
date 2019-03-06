@@ -34,9 +34,13 @@
 /PilhaExcecoesExcpetion/
 /PilhaExceptionFinally/
 /Polimorfismo/
+/Predicate/
 /SetArquivoFile/
 /SetComparable/
 /TiposListCuringaWildCardtypes/
 /Upcasting/
 /Vetor/
-/Predicate/
+/Consumer/
+/ConsumerLambda/
+/PredicateLambda/
+/FunctionLambda/

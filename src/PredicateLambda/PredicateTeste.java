@@ -1,4 +1,4 @@
-package Predicate;
+package PredicateLambda;
 
 import java.util.ArrayList;
 import java.util.List;
