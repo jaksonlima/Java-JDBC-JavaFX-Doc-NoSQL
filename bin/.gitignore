@@ -1,3 +1,5 @@
+/ChartAtParaQueServe/
+/ClassAbctraras/
 /ConsumerLambda/
 /CuringasDelimitadosBounDedWildCards/
 /CuringasDelimitadosPrincípioGetPut/
@@ -34,6 +36,7 @@
 /Override/
 /PilhaExcecoesExcpetion/
 /PilhaExceptionFinally/
+/PipelineLambda/
 /Polimorfismo/
 /PredicateLambda/
 /SetArquivoFile/
@@ -42,4 +45,4 @@
 /TiposListCuringaWildCardtypes/
 /Upcasting/
 /Vetor/
-/PipelineLambda/
+/StreamFileArquivos/
