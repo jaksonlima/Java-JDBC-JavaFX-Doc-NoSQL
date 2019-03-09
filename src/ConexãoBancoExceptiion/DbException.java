@@ -1,4 +1,4 @@
-package DbExceptiion;
+package ConexãoBancoExceptiion;
 
 public class DbException extends RuntimeException {
 
