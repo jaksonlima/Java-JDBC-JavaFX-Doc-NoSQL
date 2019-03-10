@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import ConexãoBanco.DBConnection;
+import ConexãoBanco.BDConnection;
 
 public class TesteKeyUltimoInsert  {
 	public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class TesteKeyUltimoInsert  {
 		PreparedStatement st = null;
 		
 		try {
-			connection = DBConnection.getConnection();
+			connection = BDConnection.getConnection();
 			st = connection.prepareStatement(
 					"INSERT INTO seller"
 					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId)"
@@ -51,8 +51,8 @@ public class TesteKeyUltimoInsert  {
 			e.printStackTrace();
 		}
 		finally {
-			DBConnection.closeStatement(st);
-			DBConnection.closeConnection();
+			BDConnection.closeStatement(st);
+			BDConnection.closeConnection();
 		}
 
 	}

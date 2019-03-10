@@ -32,3 +32,6 @@
 /ConexãoBancoPreparedStatementInserirDados/
 /ConexãoBancoInserção/
 /ConexãoBancoTrazerDados/
+/ConexãoBancoAtualizarDdos/
+/ConexãoBancoDeleteDados/
+/ConexãoBancoTransações/

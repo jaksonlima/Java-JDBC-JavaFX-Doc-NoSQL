@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import ConexãoBanco.DBConnection;
+import ConexãoBanco.BDConnection;
 
 public class TesteConnection {
 	public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class TesteConnection {
 		ResultSet rs = null;
 
 		try {
-			connection = DBConnection.getConnection();
+			connection = BDConnection.getConnection();
 
 			st = connection.createStatement();
 
@@ -36,9 +36,9 @@ public class TesteConnection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			DBConnection.closeStatement(st);
-			DBConnection.closeResultSet(rs);
-			DBConnection.closeConnection();
+			BDConnection.closeStatement(st);
+			BDConnection.closeResultSet(rs);
+			BDConnection.closeConnection();
 		}
 	}
 

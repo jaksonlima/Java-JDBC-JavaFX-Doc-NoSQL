@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-import ConexãoBancoExceptiion.DbException;
+import ConexãoBancoExceptiion.BdException;
 
-public class DBConnection {
+public class BDConnection {
 
 	private static Connection connect = null;
 
@@ -23,7 +23,7 @@ public class DBConnection {
 				connect = DriverManager.getConnection(url, props);
 
 			} catch (SQLException e) {
-				throw new DbException(e.getMessage());
+				throw new BdException(e.getMessage());
 			}
 		}
 		return connect;
@@ -34,7 +34,7 @@ public class DBConnection {
 			try {
 				connect.close();
 			} catch (SQLException e) {
-				throw new DbException(e.getMessage());
+				throw new BdException(e.getMessage());
 			}
 		}
 	}
@@ -45,7 +45,7 @@ public class DBConnection {
 			pros.load(fs);
 			return pros;
 		} catch (IOException e) {
-			throw new DbException(e.getMessage());
+			throw new BdException(e.getMessage());
 		}
 	}
 
@@ -54,7 +54,7 @@ public class DBConnection {
 			try {
 				st.close();
 			} catch (SQLException e) {
-				throw new DbException(e.getMessage());
+				throw new BdException(e.getMessage());
 			}
 		}
 	}
@@ -64,7 +64,7 @@ public class DBConnection {
 			try {
 				rs.close();
 			} catch (SQLException e) {
-				throw new DbException(e.getMessage());
+				throw new BdException(e.getMessage());
 			}
 		}
 	}

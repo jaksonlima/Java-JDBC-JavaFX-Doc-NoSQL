@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import ConexãoBanco.DBConnection;
+import ConexãoBanco.BDConnection;
 
 public class TesteVariosDados {
 	public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class TesteVariosDados {
 		PreparedStatement st = null;
 		
 		try {
-			connection = DBConnection.getConnection();
+			connection = BDConnection.getConnection();
 //			st = connection.prepareStatement(
 //					"INSERT INTO seller"
 //					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId)"
@@ -57,8 +57,8 @@ public class TesteVariosDados {
 //			e.printStackTrace();
 //		}
 		finally {
-			DBConnection.closeStatement(st);
-			DBConnection.closeConnection();
+			BDConnection.closeStatement(st);
+			BDConnection.closeConnection();
 		}
 
 	}

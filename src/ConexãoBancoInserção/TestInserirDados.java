@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import ConexãoBanco.DBConnection;
+import ConexãoBanco.BDConnection;
 
 public class TestInserirDados {
 	public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class TestInserirDados {
 		PreparedStatement st = null;
 		
 		try {
-			connection = DBConnection.getConnection();
+			connection = BDConnection.getConnection();
 			st = connection.prepareStatement(
 					"INSERT INTO seller"
 					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId)"
@@ -24,10 +24,10 @@ public class TestInserirDados {
 					+ "(?, ?, ?, ?, ?)"
 					);
 			
-			st.setString(1, "Carlos P");
-			st.setString(2, "calos.p@gmail.com");
-			st.setDate(3, new java.sql.Date(data.parse("21/09/2018").getTime()));
-			st.setDouble(4, 1200.0);
+			st.setString(1, "Bruna v");
+			st.setString(2, "bruna.v@gmail.com");
+			st.setDate(3, new java.sql.Date(data.parse("11/01/2001").getTime()));
+			st.setDouble(4, 12000.0);
 			st.setInt(5, 2);
 			
 			int update = st.executeUpdate();
@@ -40,8 +40,8 @@ public class TestInserirDados {
 			e.printStackTrace();
 		}
 		finally {
-			DBConnection.closeStatement(st);
-			DBConnection.closeConnection();
+			BDConnection.closeStatement(st);
+			BDConnection.closeConnection();
 		}
 
 	}
