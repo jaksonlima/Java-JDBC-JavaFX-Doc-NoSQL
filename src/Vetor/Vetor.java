@@ -16,6 +16,8 @@ public class Vetor {
 		/***
 		Assim fazemos um vetor e chamamos a possição 1 do vetor que tem 12 possiçoes 
 		*/
+		
+		sc.close();
 	}
 
 }
