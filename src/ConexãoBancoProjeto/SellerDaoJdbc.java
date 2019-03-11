@@ -44,25 +44,16 @@ public class SellerDaoJdbc implements SellerDAO {
 		try {
 
 			st = conection.prepareStatement(
-
 					"SELECT seller.*, department.name as DepNome" 
-					+ "FROM seller INNER JOIN department "
-					+ "ON seller.DepartmentId = department.Id " 
-					+ "WHERE seller.Id = ?");
-			
+			       + "FROM seller INNER JOIN department "
+			       + "ON seller.DepartmentId = department.Id " 
+			       + "WHERE seller.Id = ?");
+
 			st.setInt(1, id);
 			rs = st.executeQuery();
 			if (rs.next()) {
-				Departament depart = new Departament();
-				depart.setId(rs.getInt("DepartmentId"));
-				depart.setNome(rs.getString("DepNome"));
-				Seller seler = new Seller();
-				seler.setId(rs.getInt("Id"));
-				seler.setNome(rs.getString("Name"));
-				seler.setEmail(rs.getString("Email"));
-				seler.setBaseSalario(rs.getDouble("BaseSalary"));
-				seler.setDataNasci(rs.getDate("BirthDate"));
-				seler.setDepartament(depart);
+				Departament depart = instantiateDapartment(rs);
+				Seller seler = instantiateSeller(rs, depart);
 				return seler;
 			}
 		} catch (SQLException e) {
@@ -73,6 +64,24 @@ public class SellerDaoJdbc implements SellerDAO {
 		}
 		return null;
 
+	}
+
+	private Seller instantiateSeller(ResultSet rs, Departament depart) throws SQLException {
+		Seller seler = new Seller();
+		seler.setId(rs.getInt("Id"));
+		seler.setNome(rs.getString("Name"));
+		seler.setEmail(rs.getString("Email"));
+		seler.setBaseSalario(rs.getDouble("BaseSalary"));
+		seler.setDataNasci(rs.getDate("BirthDate"));
+		seler.setDepartament(depart);
+		return seler;
+	}
+
+	private Departament instantiateDapartment(ResultSet rs) throws SQLException {
+		Departament depart = new Departament();
+		depart.setId(rs.getInt("DepartmentId"));
+		depart.setNome(rs.getString("DepNome"));
+		return depart;
 	}
 
 	@Override
