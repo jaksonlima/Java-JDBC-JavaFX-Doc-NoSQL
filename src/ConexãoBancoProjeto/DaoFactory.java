@@ -4,8 +4,8 @@ import ConexãoBanco.BDConnection;
 
 public class DaoFactory {
 
-	public static SellerDAO createSellerDao() {
-		return new SellerDaoJdbc(BDConnection.getConnection());
+	public static SellerBanco createSellerDao() {
+		return new SellerBancoSQL(BDConnection.getConnection());
 	}
 
 }

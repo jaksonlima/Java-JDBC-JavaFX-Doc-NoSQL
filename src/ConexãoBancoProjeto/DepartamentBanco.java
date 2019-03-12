@@ -2,7 +2,7 @@ package ConexãoBancoProjeto;
 
 import java.util.List;
 
-public interface DepartamentDAO {
+public interface DepartamentBanco {
 
 	public void inserir(Departament obj);
 

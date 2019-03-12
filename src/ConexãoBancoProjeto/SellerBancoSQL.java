@@ -9,11 +9,11 @@ import java.util.List;
 import ConexãoBanco.BDConnection;
 import ConexãoBancoExceptiion.BdException;
 
-public class SellerDaoJdbc implements SellerDAO {
+public class SellerBancoSQL implements SellerBanco {
 
 	private Connection conection;
 
-	public SellerDaoJdbc(Connection conection) {
+	public SellerBancoSQL(Connection conection) {
 		this.conection = conection;
 	}
 
@@ -44,7 +44,7 @@ public class SellerDaoJdbc implements SellerDAO {
 		try {
 
 			st = conection.prepareStatement(
-					"SELECT seller.*, department.name as DepNome" 
+					"SELECT seller.*, department.Name as DepNome " 
 			       + "FROM seller INNER JOIN department "
 			       + "ON seller.DepartmentId = department.Id " 
 			       + "WHERE seller.Id = ?");
@@ -71,8 +71,8 @@ public class SellerDaoJdbc implements SellerDAO {
 		seler.setId(rs.getInt("Id"));
 		seler.setNome(rs.getString("Name"));
 		seler.setEmail(rs.getString("Email"));
-		seler.setBaseSalario(rs.getDouble("BaseSalary"));
 		seler.setDataNasci(rs.getDate("BirthDate"));
+		seler.setBaseSalario(rs.getDouble("BaseSalary"));
 		seler.setDepartament(depart);
 		return seler;
 	}
@@ -86,6 +86,12 @@ public class SellerDaoJdbc implements SellerDAO {
 
 	@Override
 	public List<Seller> FinalAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Seller> findByDepartment(Departament department) {
 		// TODO Auto-generated method stub
 		return null;
 	}

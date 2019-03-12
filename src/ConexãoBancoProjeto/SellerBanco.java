@@ -2,7 +2,7 @@ package ConexãoBancoProjeto;
 
 import java.util.List;
 
-public interface SellerDAO {
+public interface SellerBanco {
 
 	public void inserir(Seller obj);
 
@@ -13,5 +13,7 @@ public interface SellerDAO {
 	Seller FinalID(Integer id);
 
 	List<Seller> FinalAll();
+	
+	List<Seller> findByDepartment(Departament department);
 
 }
