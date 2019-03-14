@@ -24,41 +24,37 @@ public class SellerBancoSQL implements SellerBanco {
 
 	@Override
 	public void inserir(Seller obj) {
-		
+
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		
-		 try {
-			 
-			 st = conection.prepareStatement(
-					 "INSERT INTO seller "
-					 +"(Name, Email, BirthDate, BaseSalary, DepartmentId) "
-					 +"VALUES "		 
-					 +"(?, ?, ?, ?, ?)",
-					 Statement.RETURN_GENERATED_KEYS);
-			 
-			 st.setString(1, obj.getNome());
-			 st.setString(2, obj.getEmail());
-			 st.setDate(3, new java.sql.Date(obj.getDataNasci().getTime()));
-			 st.setDouble(4, obj.getBaseSalario());
-			 st.setInt(5, obj.getDepartament().getId());
-			 
-			 int update = st.executeUpdate();
-			 
-			 if(update > 0) {
-				 rs = st.getGeneratedKeys();
-				 if(rs.next()) {
-					 int id = rs.getInt(1);
-					 obj.setId(id);
-				 }
-			 } else {
-				 throw new BdException("Erro inesperado nem uma linha foi afetada");
-			 }
-					 
+
+		try {
+
+			st = conection.prepareStatement("INSERT INTO seller "
+					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId) " + "VALUES " + "(?, ?, ?, ?, ?)",
+					Statement.RETURN_GENERATED_KEYS);
+
+			st.setString(1, obj.getNome());
+			st.setString(2, obj.getEmail());
+			st.setDate(3, new java.sql.Date(obj.getDataNasci().getTime()));
+			st.setDouble(4, obj.getBaseSalario());
+			st.setInt(5, obj.getDepartament().getId());
+
+			int update = st.executeUpdate();
+
+			if (update > 0) {
+				rs = st.getGeneratedKeys();
+				if (rs.next()) {
+					int id = rs.getInt(1);
+					obj.setId(id);
+				}
+			} else {
+				throw new BdException("Erro inesperado nem uma linha foi afetada");
+			}
+
 		} catch (SQLException e) {
 			throw new BdException("Erro");
-		}
-		 finally {
+		} finally {
 			BDConnection.closeStatement(st);
 			BDConnection.closeResultSet(rs);
 		}
@@ -67,36 +63,29 @@ public class SellerBancoSQL implements SellerBanco {
 
 	@Override
 	public void update(Seller obj) {
-		
+
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		
+
 		try {
-			
+
 			st = conection.prepareStatement(
-					
-					"UPDATE seller "
-					+"SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? "
-					+"WHERE Id = ?" );
-			
-//			       "UPDATE seller "
-//			       + "SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? "
-//     		       + "WHERE Id = ?" );
-			 
+
+					"UPDATE seller " + "SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? "
+							+ "WHERE Id = ?");
+
 			st.setString(1, obj.getNome());
 			st.setString(2, obj.getEmail());
 			st.setDate(3, new java.sql.Date(obj.getDataNasci().getTime()));
 			st.setDouble(4, obj.getBaseSalario());
 			st.setInt(5, obj.getDepartament().getId());
 			st.setInt(6, obj.getId());
-			
-		    st.executeUpdate();
-		
-			
+
+			st.executeUpdate();
+
 		} catch (SQLException e) {
 			throw new BdException("Erro atualização não existente");
-		}
-		finally {
+		} finally {
 			BDConnection.closeStatement(st);
 			BDConnection.closeResultSet(rs);
 		}
@@ -105,7 +94,31 @@ public class SellerBancoSQL implements SellerBanco {
 
 	@Override
 	public void deleteID(Integer id) {
-		// TODO Auto-generated method stub
+
+		PreparedStatement st = null;
+		ResultSet rs = null;
+
+		try {
+
+			st = conection.prepareStatement("DELETE FROM seller " + "WHERE Id = ?");
+
+			st.setInt(1, id);
+
+			int update = st.executeUpdate();
+
+			if (update == 0) {
+				System.out.println("\n Erro Cliente não existe!");
+			} else {
+				System.out.println("\n Delete Sucess! ");
+
+			}
+
+		} catch (SQLException e) {
+			throw new BdException(e.getMessage());
+		} finally {
+			BDConnection.closeResultSet(rs);
+			BDConnection.closeStatement(st);
+		}
 
 	}
 
@@ -118,10 +131,8 @@ public class SellerBancoSQL implements SellerBanco {
 		try {
 
 			st = conection.prepareStatement(
-					"SELECT seller.*, department.Name as DepNome " 
-			       + "FROM seller INNER JOIN department "
-			       + "ON seller.DepartmentId = department.Id " 
-			       + "WHERE seller.Id = ?");
+					"SELECT seller.*, department.Name as DepNome " + "FROM seller INNER JOIN department "
+							+ "ON seller.DepartmentId = department.Id " + "WHERE seller.Id = ?");
 
 			st.setInt(1, id);
 			rs = st.executeQuery();
@@ -160,28 +171,25 @@ public class SellerBancoSQL implements SellerBanco {
 
 	@Override
 	public List<Seller> FinalAll() {
-		
+
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		
+
 		try {
 			st = conection.prepareStatement(
-					"SELECT seller.*, department.name as DepNome "
-					+ "FROM seller INNER JOIN department "
-					+ "ON seller.DepartmentId = department.Id "
-					+ "ORDER BY Name" );
-			
-			
+					"SELECT seller.*, department.name as DepNome " + "FROM seller INNER JOIN department "
+							+ "ON seller.DepartmentId = department.Id " + "ORDER BY Name");
+
 			rs = st.executeQuery();
-			
+
 			List<Seller> list = new ArrayList<Seller>();
-			
+
 			Map<Integer, Departament> map = new HashMap<>();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				Departament dep = map.get(rs.getInt("DepartmentId"));
-				
-				if(dep == null) {
+
+				if (dep == null) {
 					dep = instantiateDapartment(rs);
 					map.put(rs.getInt("DepartmentId"), dep);
 				}
@@ -189,11 +197,10 @@ public class SellerBancoSQL implements SellerBanco {
 				list.add(seller);
 			}
 			return list;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			BDConnection.closeStatement(st);
 			BDConnection.closeResultSet(rs);
 		}
@@ -202,30 +209,27 @@ public class SellerBancoSQL implements SellerBanco {
 
 	@Override
 	public List<Seller> findByDepartment(Departament department) {
-		
+
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		
+
 		try {
 			st = conection.prepareStatement(
-					"SELECT seller.*, department.name as DepNome " 
-					+"FROM seller INNER JOIN department "
-					+"ON seller.DepartmentId = department.Id "  
-					+"WHERE DepartmentId = ?");
-//				    +"ORDER BY Name" );
-			
+					"SELECT seller.*, department.name as DepNome FROM seller " + "INNER JOIN department "
+							+ "ON seller.DepartmentId = department.Id " + "WHERE DepartmentId = ? " + "ORDER BY Name");
+
 			st.setInt(1, department.getId());
-			
+
 			rs = st.executeQuery();
-			
+
 			List<Seller> list = new ArrayList<Seller>();
-			
+
 			Map<Integer, Departament> map = new HashMap<>();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				Departament dep = map.get(rs.getInt("DepartmentId"));
-				
-				if(dep == null) {
+
+				if (dep == null) {
 					dep = instantiateDapartment(rs);
 					map.put(rs.getInt("DepartmentId"), dep);
 				}
@@ -233,11 +237,10 @@ public class SellerBancoSQL implements SellerBanco {
 				list.add(seller);
 			}
 			return list;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			BDConnection.closeStatement(st);
 			BDConnection.closeResultSet(rs);
 		}

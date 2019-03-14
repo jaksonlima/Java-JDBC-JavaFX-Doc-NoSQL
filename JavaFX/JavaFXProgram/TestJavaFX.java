@@ -1,4 +1,4 @@
-package JavaFX;
+package JavaFXProgram;
 
 import java.io.IOException;
 

@@ -1,3 +1,4 @@
+/Alerta/
 /ChartAtParaQueServe/
 /ClassAbctraras/
 /ConexãoBanco/
@@ -37,7 +38,7 @@
 /InterfaceComparableFiles/
 /InterfaceHerançaDiamante/
 /InterfaceMétodosPadrão/
-/JavaFX/
+/JavaFXProgram/
 /LambdaComparator/
 /ListArrayPolimorfismo/
 /ListPolimorfismoHeranca/
@@ -49,6 +50,7 @@
 /PipelineLambda/
 /Polimorfismo/
 /PredicateLambda/
+/Restrições/
 /SetArquivoFile/
 /SetComparable/
 /SteamLambda/
