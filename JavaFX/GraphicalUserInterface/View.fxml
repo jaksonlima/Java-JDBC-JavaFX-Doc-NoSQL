@@ -13,7 +13,7 @@
       <Button fx:id="botao" layoutX="150.0" layoutY="359.0" mnemonicParsing="false" onAction="#onBotaoAcao" prefHeight="44.0" prefWidth="123.0" text="Entrar" />
       <Label layoutX="38.0" layoutY="236.0" text="USUARIO" />
       <Label layoutX="38.0" layoutY="287.0" prefHeight="35.0" prefWidth="51.0" text="SENHA" />
-      <Button fx:id="Sobre" layoutX="14.0" layoutY="611.0" mnemonicParsing="false" onAction="#onBotaoSobre" text="Sobre" />
+      <Button fx:id="sobre" layoutX="14.0" layoutY="611.0" mnemonicParsing="false" onAction="#onBotaoSobre" text="Sobre" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="135.0" layoutY="32.0" opacity="0.95" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="468.0" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="137.0" AnchorPane.topAnchor="32.0">
          <image>
             <Image url="@../../../../Users/jakson.lima/Pictures/sovis.png" />

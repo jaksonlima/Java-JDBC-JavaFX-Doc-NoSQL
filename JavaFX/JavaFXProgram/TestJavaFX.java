@@ -13,7 +13,7 @@ public class TestJavaFX extends Application {
 	@Override
 	public void start(Stage stage) {
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/GraphicalUserInterface/View.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("/GraphicalUserInterface/View2.fxml"));
 			Scene scene = new Scene(parent);
 			stage.setScene(scene);
 			stage.show();
