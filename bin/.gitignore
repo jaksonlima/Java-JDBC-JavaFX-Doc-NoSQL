@@ -28,7 +28,6 @@
 /FunçõesRecebemFunçõesParâmetro/
 /GenericsSetMap/
 /GenéricosDelimitados/
-/GraphicalUserInterface/
 /HashCodeEquals/
 /HashSetTreeSetLinkedHashSet/
 /HerançaEinterface/
@@ -38,7 +37,6 @@
 /InterfaceComparableFiles/
 /InterfaceHerançaDiamante/
 /InterfaceMétodosPadrão/
-/JavaFXProgram/
 /LambdaComparator/
 /ListArrayPolimorfismo/
 /ListPolimorfismoHeranca/
@@ -56,6 +54,9 @@
 /SetComparable/
 /SteamLambda/
 /StreamFileArquivos/
+/TelaProgram/
 /TiposListCuringaWildCardtypes/
 /Upcasting/
 /Vetor/
+/GraphicalUserInterface/
+/JavaFXProgram/
