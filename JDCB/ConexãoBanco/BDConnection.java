@@ -40,7 +40,7 @@ public class BDConnection {
 	}
 
 	private static Properties loadProperties() {
-		try (FileInputStream fs = new FileInputStream("db.properties")) {
+		try (FileInputStream fs = new FileInputStream("localhost.Banco")) {
 			Properties pros = new Properties();
 			pros.load(fs);
 			return pros;
