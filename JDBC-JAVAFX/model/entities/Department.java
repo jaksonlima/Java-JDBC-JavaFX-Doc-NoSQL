@@ -1,20 +1,20 @@
-package entities;
+package model.entities;
 
 import java.io.Serializable;
 
-public class Departamento implements Serializable {
+public class Department implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
-	private String nome;
-
-	public Departamento() {
+	private String name;
+	
+	public Department() {
 	}
 
-	public Departamento(Integer id, String nome) {
+	public Department(Integer id, String name) {
 		this.id = id;
-		this.nome = nome;
+		this.name = name;
 	}
 
 	public Integer getId() {
@@ -25,17 +25,12 @@ public class Departamento implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	@Override
-	public String toString() {
-		return "Departamento [id=" + id + ", nome=" + nome + "]";
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
@@ -43,7 +38,6 @@ public class Departamento implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
 
@@ -55,18 +49,17 @@ public class Departamento implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Departamento other = (Departamento) obj;
+		Department other = (Department) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", name=" + name + "]";
+	}
 }
