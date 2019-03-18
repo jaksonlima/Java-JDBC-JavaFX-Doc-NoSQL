@@ -33,7 +33,7 @@ public class MainViewTela implements Initializable {
 
 	@FXML
 	public void onMenuItemDepartamentoAcao() {
-		System.out.println("Departemento Sucess " + menuItemDepartamento);
+		loadView("/MainViewTela/Departamento.fxml");
 	}
 
 	@FXML

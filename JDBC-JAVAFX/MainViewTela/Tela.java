@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 public class Tela extends Application {
@@ -15,10 +16,8 @@ public class Tela extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			String FXML = "/MainViewTela/MainView.fxml";
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainViewTela/MainView.fxml"));
 			Parent scrollpane = loader.load();
-//			ScrollPane scrollpane = loader.load();
 			mainScene = new Scene(scrollpane);
 			primaryStage.setScene(mainScene);
 			primaryStage.setTitle("Sample JavaFX application");

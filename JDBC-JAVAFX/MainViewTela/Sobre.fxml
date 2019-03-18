@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="sobre" onDragDetected="#onMenuItemSobreAcao" prefHeight="204.0" prefWidth="352.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewTela.MainViewTela">
+<VBox onDragDetected="#onMenuItemSobreAcao" prefHeight="204.0" prefWidth="352.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainViewTela.MainViewTela">
 	<children>
       <Label text="Sobre">
          <font>
